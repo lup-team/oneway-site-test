@@ -1352,31 +1352,35 @@ main {
 .service-card--visual {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
+
 
 /* الكلام في أعلى البطاقة */
 .service-card__body {
   position: relative;
   z-index: 2;
+    min-height: 155px;
 }
 
 .service-card__body h3 {
   margin: 0 0 8px;
 }
 
-/* الصورة في أسفل البطاقة */
 .service-card__media {
-  margin-top: auto;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  margin-top: 0;
+  width: 100%;
+  height: 330px; /* same image height */
+  overflow: hidden;
+  border-radius: 28px 28px 0 0;
 }
 
-/* مهم: contain وليس cover */
 .service-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
-
 @media (max-width: 767px) {
   .service-card--visual {
     min-height: 255px;
@@ -1384,7 +1388,7 @@ main {
   }
 
   .service-card__media img {
-    width: 95%;
+    width: 100%;
   }
 }
 
@@ -3524,25 +3528,23 @@ html[dir="ltr"] .home-hero__content {
   position: relative;
 
   width: 100%;
-  height: 220px;
+  height: 330px;
 
   overflow: hidden;
 
-  border-radius:
-    23px
-    23px
-    0
-    0;
+  border-radius: 28px 28px 0 0;
 
   background: #eee7df;
 }
 
 
-.service-card__media img {
+service-card__media img {
+  display: block;
+
   width: 100%;
   height: 100%;
 
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
 
   transition:
@@ -3681,38 +3683,8 @@ html[dir="ltr"] .home-hero__content {
 }
 
 
-/* One Way decorative watermark above footer */
 .watermark-divider {
-  width: 100%;
-  height: 55px;
-
-  background-image:
-    url("../images/watermark/watermark-pattern.svg");
-
-  background-repeat: repeat-x;
-  background-position: center;
-  background-size: 55px 55px;
-
-  opacity: 0.22;
-
-  /* Soft fade on the left and right edges */
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    #000 6%,
-    #000 94%,
-    transparent
-  );
-
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    #000 6%,
-    #000 94%,
-    transparent
-  );
-
-  pointer-events: none;
+  display: none !important;
 }
 
 @media (max-width: 767px) {
@@ -4077,15 +4049,16 @@ html[dir="ltr"] .home-hero__content {
     height: 130px;
     opacity: 0.16;
   }
-
-  .home-about::before {
-    top: 20px;
-    right: -64px;
+ .home-about::before {
+    display: none;
   }
 
   .home-about::after {
-    bottom: -42px;
-    left: -58px;
+    width: 108px;
+    height: 108px;
+    bottom: 10px;
+    left: -45px;
+    opacity: 0.10;
   }
 }
 
