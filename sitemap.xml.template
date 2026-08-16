@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  PUBLISHER-TODO:
+
+  1. Replace {{PRODUCTION_BASE_URL}} with the final website URL.
+     Example format:
+     https://final-domain.com
+
+  2. Do not add a slash at the end of the domain variable.
+
+  3. Rename this file:
+     sitemap.xml.template
+     to:
+     sitemap.xml
+
+  4. Upload sitemap.xml to the website root beside index.html.
+
+  5. Add the final sitemap URL to robots.txt.
+
+  6. Submit the sitemap through Google Search Console.
+-->
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>{{PRODUCTION_BASE_URL}}/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+</urlset>
