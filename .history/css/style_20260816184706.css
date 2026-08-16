@@ -4965,233 +4965,173 @@ html[dir="ltr"]
   transform: none;
   transition: none;
 }
-
-
 /* =========================================================
-   MOBILE FLIGHT DIVIDER
-   Hero → About
-   Same concept as process-plane
+   MOBILE HERO — FLYING PLANE
+   Phone only
 ========================================================= */
 
-.mobile-flight-divider {
+.mobile-flight {
   display: none;
 }
 
 @media (max-width: 767px) {
-
-  .mobile-flight-divider {
-    position: relative;
-    z-index: 10;
+  .mobile-flight {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
 
     display: block;
 
     width: 100%;
-    height: 60px;
-
-    margin-top: -1px;
+    height: 100%;
 
     overflow: hidden;
-
-    background: var(--home-light, #f7f3ed);
+    pointer-events: none;
   }
 
-  /* The horizontal separator / flight route */
-  .mobile-flight-divider::before {
-    content: "";
+  .mobile-flight__route {
+    position: absolute;
+    inset: 0;
 
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+  }
+
+  .mobile-flight__path {
+    fill: none;
+
+    stroke: rgba(223, 182, 117, 0.48);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+
+    stroke-dasharray: 4 9;
+
+    vector-effect: non-scaling-stroke;
+
+    opacity: 0;
+  }
+
+  .mobile-flight__plane {
     position: absolute;
 
-    top: 50%;
+    top: 0;
     left: 0;
-    right: 0;
 
-    height: 1px;
+    width: 29px;
+    height: 29px;
 
-    background:
-      repeating-linear-gradient(
-        to right,
-        rgba(177, 122, 63, 0.52) 0,
-        rgba(177, 122, 63, 0.52) 6px,
-        transparent 6px,
-        transparent 14px
-      );
-
-    transform: translateY(-50%);
-  }
-
-  .mobile-flight-divider__plane {
-    position: absolute;
-
-    top: 50%;
-    right: -38px;
-
-    z-index: 2;
-
-    display: grid;
-    place-items: center;
-
-    width: 42px;
-    height: 32px;
-
-    color: var(--home-gold, #b17a3f);
+    color: #dfb675;
 
     opacity: 0;
 
-    pointer-events: none;
+    transform-origin: center;
 
-    transform:
-      translateY(-50%)
-      scaleX(-1);
+    filter:
+      drop-shadow(0 4px 7px rgba(0, 0, 0, 0.24))
+      drop-shadow(0 0 7px rgba(223, 182, 117, 0.18));
+
+    will-change:
+      offset-distance,
+      opacity,
+      transform;
   }
 
-  .mobile-flight-divider__plane svg {
+  .mobile-flight__plane svg {
     display: block;
 
-    width: 30px;
-    height: 26px;
+    width: 100%;
+    height: 100%;
 
     fill: currentColor;
-    stroke: none;
   }
 
-  /*
-     Activate with JS when the divider
-     enters the viewport.
-  */
-  .mobile-flight-divider.is-plane-active
-  .mobile-flight-divider__plane {
+  .mobile-flight.is-active .mobile-flight__path {
     animation:
-      mobile-divider-plane-rtl 6.5s linear infinite;
+      mobileFlightRouteIn 900ms ease-out forwards,
+      mobileFlightRouteOut 550ms ease-in 3.5s forwards;
   }
 
-  /*
-     Arabic / RTL:
-     plane travels right → left
-  */
-  @keyframes mobile-divider-plane-rtl {
+  .mobile-flight.is-active .mobile-flight__plane {
+    offset-path: path(
+      "M38 425 C42 340 82 300 142 275 C218 242 294 210 317 120"
+    );
 
-    0% {
-      right: -38px;
+    offset-distance: 0%;
+    offset-rotate: auto 90deg;
 
+    animation:
+      mobilePlaneFly 4.1s
+      cubic-bezier(0.45, 0, 0.3, 1)
+      300ms
+      forwards;
+  }
+
+  @keyframes mobileFlightRouteIn {
+    from {
       opacity: 0;
+    }
 
-      transform:
-        translateY(-50%)
-        scaleX(-1)
-        scale(0.88);
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes mobileFlightRouteOut {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes mobilePlaneFly {
+    0% {
+      offset-distance: 0%;
+      opacity: 0;
+      transform: scale(0.78);
     }
 
     7% {
       opacity: 1;
+      transform: scale(0.92);
     }
 
-    45% {
-      transform:
-        translateY(-58%)
-        scaleX(-1)
-        scale(1);
+    38% {
+      transform: scale(1);
     }
 
-    55% {
-      transform:
-        translateY(-42%)
-        scaleX(-1)
-        scale(1);
+    72% {
+      opacity: 1;
+      transform: scale(0.96);
     }
 
-    93% {
+    92% {
       opacity: 1;
     }
 
     100% {
-      right: calc(100% + 38px);
-
+      offset-distance: 100%;
       opacity: 0;
-
-      transform:
-        translateY(-50%)
-        scaleX(-1)
-        scale(0.88);
-    }
-  }
-
-  /*
-     English / LTR:
-     reverse direction
-  */
-  html[dir="ltr"]
-  .mobile-flight-divider__plane {
-    right: auto;
-    left: -38px;
-
-    transform:
-      translateY(-50%)
-      scaleX(1);
-  }
-
-  html[dir="ltr"]
-  .mobile-flight-divider.is-plane-active
-  .mobile-flight-divider__plane {
-    animation-name: mobile-divider-plane-ltr;
-  }
-
-  @keyframes mobile-divider-plane-ltr {
-
-    0% {
-      left: -38px;
-
-      opacity: 0;
-
-      transform:
-        translateY(-50%)
-        scaleX(1)
-        scale(0.88);
-    }
-
-    7% {
-      opacity: 1;
-    }
-
-    45% {
-      transform:
-        translateY(-58%)
-        scaleX(1)
-        scale(1);
-    }
-
-    55% {
-      transform:
-        translateY(-42%)
-        scaleX(1)
-        scale(1);
-    }
-
-    93% {
-      opacity: 1;
-    }
-
-    100% {
-      left: calc(100% + 38px);
-
-      opacity: 0;
-
-      transform:
-        translateY(-50%)
-        scaleX(1)
-        scale(0.88);
+      transform: scale(0.72);
     }
   }
 }
 
-/* Never show it on tablets / desktop */
-@media (min-width: 768px) {
-  .mobile-flight-divider {
-    display: none !important;
+/* Extra-small phones */
+@media (max-width: 390px) {
+  .mobile-flight__plane {
+    width: 26px;
+    height: 26px;
   }
 }
 
+/* Respect accessibility preference */
 @media (prefers-reduced-motion: reduce) {
-  .mobile-flight-divider__plane {
+  .mobile-flight {
     display: none !important;
   }
 }

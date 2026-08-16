@@ -559,53 +559,7 @@ if (processSteps) {
   }
 }});
 
-/* ========================================
-   Mobile Hero → About divider plane
-======================================== */
 
-const mobileFlightDivider =
-  document.querySelector(".mobile-flight-divider");
-
-if (mobileFlightDivider) {
-
-  const mobileFlightMedia =
-    window.matchMedia("(max-width: 767px)");
-
-  const reduceMotion =
-    window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-  if (
-    mobileFlightMedia.matches &&
-    !reduceMotion &&
-    "IntersectionObserver" in window
-  ) {
-
-    const mobileFlightDividerObserver =
-      new IntersectionObserver(
-        (entries) => {
-
-          entries.forEach((entry) => {
-
-            mobileFlightDivider.classList.toggle(
-              "is-plane-active",
-              entry.isIntersecting
-            );
-
-          });
-
-        },
-        {
-          threshold: 0.25
-        }
-      );
-
-    mobileFlightDividerObserver.observe(
-      mobileFlightDivider
-    );
-  }
-}
 
 /* ========================================
    Contact phone copy interaction
@@ -662,3 +616,92 @@ document.addEventListener("click", async (event) => {
   }, 1800);
 });
 
+/* ========================================
+   Mobile Hero Flying Plane
+======================================== */
+
+(() => {
+  const mobileFlight = document.querySelector(".mobile-flight");
+  const hero = document.querySelector(".home-hero");
+
+  if (!mobileFlight || !hero) return;
+
+  const mobileQuery = window.matchMedia("(max-width: 767px)");
+  const reducedMotionQuery = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  );
+
+  let hasPlayed = false;
+
+  const playFlight = () => {
+    if (!mobileQuery.matches) return;
+    if (reducedMotionQuery.matches) return;
+    if (hasPlayed) return;
+
+    hasPlayed = true;
+
+    /*
+     * Restart safely in case the browser has already
+     * calculated the initial state.
+     */
+    mobileFlight.classList.remove("is-active");
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        mobileFlight.classList.add("is-active");
+      });
+    });
+  };
+
+  const resetFlight = () => {
+    mobileFlight.classList.remove("is-active");
+
+    if (!mobileQuery.matches) {
+      hasPlayed = false;
+    }
+  };
+
+  /*
+   * Start the animation when the hero is actually visible.
+   */
+  if ("IntersectionObserver" in window) {
+    const heroFlightObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          playFlight();
+
+          if (hasPlayed) {
+            observer.unobserve(hero);
+          }
+        });
+      },
+      {
+        threshold: 0.35
+      }
+    );
+
+    heroFlightObserver.observe(hero);
+  } else {
+    playFlight();
+  }
+
+  /*
+   * Correct state if device orientation / viewport changes.
+   */
+  const handleViewportChange = () => {
+    if (!mobileQuery.matches) {
+      resetFlight();
+    }
+  };
+
+  if (typeof mobileQuery.addEventListener === "function") {
+    mobileQuery.addEventListener(
+      "change",
+      handleViewportChange
+    );
+  } else if (typeof mobileQuery.addListener === "function") {
+    mobileQuery.addListener(handleViewportChange);
+  }
+})();

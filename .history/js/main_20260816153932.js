@@ -559,53 +559,7 @@ if (processSteps) {
   }
 }});
 
-/* ========================================
-   Mobile Hero → About divider plane
-======================================== */
 
-const mobileFlightDivider =
-  document.querySelector(".mobile-flight-divider");
-
-if (mobileFlightDivider) {
-
-  const mobileFlightMedia =
-    window.matchMedia("(max-width: 767px)");
-
-  const reduceMotion =
-    window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-  if (
-    mobileFlightMedia.matches &&
-    !reduceMotion &&
-    "IntersectionObserver" in window
-  ) {
-
-    const mobileFlightDividerObserver =
-      new IntersectionObserver(
-        (entries) => {
-
-          entries.forEach((entry) => {
-
-            mobileFlightDivider.classList.toggle(
-              "is-plane-active",
-              entry.isIntersecting
-            );
-
-          });
-
-        },
-        {
-          threshold: 0.25
-        }
-      );
-
-    mobileFlightDividerObserver.observe(
-      mobileFlightDivider
-    );
-  }
-}
 
 /* ========================================
    Contact phone copy interaction
@@ -661,4 +615,3 @@ document.addEventListener("click", async (event) => {
     copyButton.classList.remove("is-copied");
   }, 1800);
 });
-
