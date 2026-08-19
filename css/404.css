@@ -328,3 +328,36 @@ body {
 
   text-shadow: 0 3px 14px rgba(25, 16, 12, 0.4);
 }
+/* ========================================
+   Language switcher
+======================================== */
+.error-page__language {
+  position: absolute;
+  top: clamp(18px, 3vw, 30px);
+  inset-inline-end: clamp(18px, 3vw, 30px);
+  z-index: 4;
+  min-height: 42px;
+  padding: 9px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  background: rgba(247, 243, 238, 0.82);
+  color: #39291f;
+  font: 700 0.9rem/1 "Tajawal", Arial, sans-serif;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+.error-page__language:hover {
+  background: #ffffff;
+}
+
+.error-page__language:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+}
+
+html[lang="en"] body,
+html[lang="en"] .error-page__button,
+html[lang="en"] .error-page__language {
+  font-family: "Inter", Arial, sans-serif;
+}

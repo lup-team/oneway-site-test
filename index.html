@@ -168,7 +168,7 @@
     <div class="header-inner">
 
       <!-- One Way Logo -->
-      <a class="header-logo" href="#hero" aria-label="One Way Home">
+      <a class="header-logo" href="#hero" aria-label="العودة إلى الرئيسية" data-aria-ar="العودة إلى الرئيسية" data-aria-en="One Way home">
         <img
           src="images/logo/oneway-logo-01.webp"
           alt="One Way Travel & Tours"
@@ -179,7 +179,7 @@
       </a>
 
       <!-- Main Navigation -->
-      <nav id="main-navigation" class="header-nav" aria-label="Main navigation">
+      <nav id="main-navigation" class="header-nav" aria-label="التنقل الرئيسي" data-aria-ar="التنقل الرئيسي" data-aria-en="Main navigation">
         <ul>
           <li><a href="#hero" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
           <li><a href="#about" data-ar="من نحن" data-en="About Us">من نحن</a></li>
@@ -192,7 +192,7 @@
 
       <div class="header-actions">
         <!-- Language Switcher -->
-        <button type="button" id="language-toggle" class="language-toggle" aria-label="Change language">
+        <button type="button" id="language-toggle" class="language-toggle" aria-label="تغيير اللغة إلى الإنجليزية" data-aria-ar="تغيير اللغة إلى الإنجليزية" data-aria-en="Change language to Arabic">
           English
         </button>
 
@@ -202,6 +202,8 @@
           id="menu-toggle"
           class="menu-toggle"
           aria-label="فتح القائمة"
+          data-aria-ar="فتح القائمة"
+          data-aria-en="Open menu"
           aria-controls="main-navigation"
           aria-expanded="false"
         >
@@ -352,15 +354,7 @@
               في تقديم خدمات السفر.
             </p>
 
-            <a class="text-link" href="#why-us">
-              <span
-                data-ar="لماذا تختار One Way؟"
-                data-en="Why choose One Way?"
-              >
-                لماذا تختار One Way؟
-              </span>
-             
-            </a>
+           
           </div>
 
 
@@ -376,21 +370,7 @@
               >
             </div>
 
-            <div class="home-about__mini-card">
-              <span
-                data-ar="كل احتياجات سفرك"
-                data-en="All your travel needs"
-              >
-                كل احتياجات سفرك
-              </span>
-              <strong
-                data-ar="في مكان واحد"
-                data-en="in one place"
-              >
-                في مكان واحد
-              </strong>
-            </div>
-          </div>
+            
 
         </div>
 
@@ -432,7 +412,7 @@
           <p
             class="section-text"
             data-ar="نساعدك في ترتيب تفاصيل رحلتك من البداية إلى العودة."
-            data-en="We help you arrange the details of your trip from the beginning until you return."
+            data-en="We help you arrange every detail of your trip, from planning to your return home."
           >
             نساعدك في ترتيب تفاصيل رحلتك من البداية إلى العودة.
           </p>
@@ -517,8 +497,8 @@
     </h3>
 
     <p
-      data-ar=" مساعدة في خدمات التأشيرات للوجهات المتاحة"
-      data-en="Multiple options and suitable prices for your destination."
+      data-ar="مساعدة في خدمات التأشيرات للوجهات المتاحة."
+      data-en="Assistance with visa services for available destinations."
     >
 مساعدة في خدمات التأشيرات للوجهات المتاحة.    </p>
   </div>
@@ -580,7 +560,7 @@
 
     <p
       data-ar="خيارات تنقل تساعدك على الاستمتاع بوجهتك براحة."
-      data-en="Mobility options that help you enjoy your destination comfortably."
+      data-en="Flexible car rental options to help you explore your destination with ease."
     >
 خيارات تنقل تساعدك على الاستمتاع بوجهتك براحة.</p>
   </div>
@@ -749,7 +729,7 @@
         <!-- Kazakhstan -->
         <article class="swiper-slide ow-destination-card">
           <img
-            src="images/destinations/kazakhstan.webp"
+            src="images/destinations/Kazakhstan.webp"
             alt="كازاخستان"
             width="1200"
             height="900"
@@ -789,7 +769,7 @@
         <!-- Vietnam -->
         <article class="swiper-slide ow-destination-card">
           <img
-            src="images/destinations/vietnam.webp"
+            src="images/destinations/Vietnam.webp"
             alt="فيتنام"
             width="1200"
             height="900"
@@ -810,7 +790,7 @@
             <!-- Singapore -->
         <article class="swiper-slide ow-destination-card">
           <img
-            src="images/destinations/singapore.webp"
+            src="images/destinations/Singapore.webp"
             alt="سنغافورة"
             width="1200"
             height="800"
@@ -839,7 +819,7 @@
     <button
       type="button"
       class="ow-destinations__button ow-destinations__button--prev"
-      aria-label="الوجهة السابقة"
+      aria-label="الوجهة السابقة" data-aria-ar="الوجهة السابقة" data-aria-en="Previous destination"
     >
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M19 12H5"></path>
@@ -851,7 +831,7 @@
     <button
       type="button"
       class="ow-destinations__button ow-destinations__button--next"
-      aria-label="الوجهة التالية"
+      aria-label="الوجهة التالية" data-aria-ar="الوجهة التالية" data-aria-en="Next destination"
     >
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M5 12h14"></path>
@@ -903,11 +883,18 @@
 
             <p
               class="section-text section-text--light"
-              data-ar="ابدأ طلب التأشيرة من خلال بوابة التأشيرات، أو تواصل معنا لمساعدتك في معرفة الخدمة المناسبة لوجهتك."
-              data-en="Start your visa request through the visa portal, or contact us for help identifying the right service for your destination."
+              data-ar="من خلال منصة حكاية للتأشيرات يمكنك الاطلاع على التأشيرات المتاحة، معرفة المتطلبات، وبدء تقديم طلب التأشيرة إلكترونيًا بكل سهولة.
+
+اضغط على «الانتقال إلى منصة حكاية» لزيارة المنصة واختيار وجهتك وبدء طلبك، أو تواصل معنا إذا كنت بحاجة إلى مساعدة في اختيار التأشيرة المناسبة."
+              data-en="
+Through the Hekaya Visa Platform, you can explore available visas, check the requirements, and start your visa application online with ease.
+
+Click “Go to Hekaya & Apply for a Visa” to visit the platform, choose your destination, and start your application. You can also contact us if you need help choosing the right visa."
             >
-              ابدأ طلب التأشيرة من خلال بوابة التأشيرات، أو تواصل معنا لمساعدتك
-              في معرفة الخدمة المناسبة لوجهتك.
+             من خلال منصة حكاية للتأشيرات يمكنك الاطلاع على التأشيرات المتاحة، معرفة المتطلبات، وبدء تقديم طلب التأشيرة إلكترونيًا بكل سهولة.
+
+اضغط على «الانتقال إلى منصة حكاية» لزيارة المنصة واختيار وجهتك وبدء طلبك، أو تواصل معنا إذا كنت بحاجة إلى مساعدة في اختيار التأشيرة المناسبة.
+             
             </p>
 
             <div class="home-visa__actions">
@@ -918,10 +905,10 @@
                 rel="noopener noreferrer"
               >
                 <span
-                  data-ar="ابدأ طلب التأشيرة"
-                  data-en="Start your visa request"
+                  data-ar="الانتقال إلى منصة حكاية"
+                  data-en="Go to Hekaya & Apply for a Visa"
                 >
-                  ابدأ طلب التأشيرة
+             الانتقال إلى منصة حكاية
                 </span>
               </a>
 
@@ -950,7 +937,7 @@
          TRUSTED STATISTICS
          Official figures from the approved design
     ========================================= -->
-    <section id="stats" class="home-stats" aria-label="إحصائيات One Way">
+    <section id="stats" class="home-stats" aria-label="إحصائيات One Way" data-aria-ar="إحصائيات One Way" data-aria-en="One Way statistics">
       <div class="container">
         <div class="home-stats__grid">
 
@@ -994,10 +981,10 @@
   0
 </strong>            <span
               class="stat-card__label"
-              data-ar="رحلة مكتملة"
-              data-en="Completed trips"
+              data-ar="رحلة تم تنظيمها"
+              data-en="Trips arranged"
             >
-              رحلة مكتملة
+              رحلة تم تنظيمها
             </span>
           </article>
 
@@ -1006,7 +993,7 @@
   class="stat-card__value"
   dir="ltr"
   data-counter
-  data-target="30"
+  data-target="12"
   data-prefix="+"
 >
   0
@@ -1020,112 +1007,6 @@
           </article>
 
         </div>
-      </div>
-    </section>
-
-
-    <!-- ========================================
-         WHY CHOOSE US
-    ========================================= -->
-    <section id="why-us" class="home-why section-space" aria-labelledby="why-title">
-      <div class="container">
-
-        <div class="home-why__grid">
-
-          <div class="home-why__intro" data-aos="fade-up">
-            <span
-              class="section-kicker"
-              data-ar="لماذا تختار One Way؟"
-              data-en="Why One Way?"
-            >
-              لماذا One Way؟
-            </span>
-
-            <h2 id="why-title" class="section-title">
-              <span
-                data-ar="لأن رحلتك تستحق"
-                data-en="Because your journey deserves"
-              >
-                لأن رحلتك تستحق
-              </span>
-              <span
-                class="section-title__accent"
-                data-ar="اهتمامًا من البداية"
-                data-en="attention from the start"
-              >
-                اهتمامًا من البداية
-              </span>
-            </h2>
-
-            <p
-              class="section-text"
-              data-ar="نحرص على أن تكون تجربة التخطيط للسفر واضحة وسهلة، وأن تجد الخدمات التي تحتاجها والتواصل الذي يساعدك في كل خطوة."
-              data-en="We aim to make travel planning clear and easy, with the services you need and communication that supports you at every step."
-            >
-              نحرص على أن تكون تجربة التخطيط للسفر واضحة وسهلة، وأن تجد الخدمات
-              التي تحتاجها والتواصل الذي يساعدك في كل خطوة.
-            </p>
-          </div>
-
-
-          <div class="why-grid">
-
-            <article class="why-card" data-aos="fade-up">
-              <span class="why-card__number">01</span>
-              <h3 data-ar="خدمات سفر متكاملة" data-en="Complete travel services">
-                خدمات سفر متكاملة
-              </h3>
-              <p
-                data-ar="الطيران والفنادق والتأشيرات والبرامج السياحية وخدمات أخرى في مكان واحد."
-                data-en="Flights, hotels, visas, holiday packages, and other services in one place."
-              >
-                الطيران والفنادق والتأشيرات والبرامج السياحية وخدمات أخرى في مكان واحد.
-              </p>
-            </article>
-
-            <article class="why-card" data-aos="fade-up" data-aos-delay="60">
-              <span class="why-card__number">02</span>
-              <h3 data-ar="سهولة التواصل" data-en="Easy communication">
-                سهولة التواصل
-              </h3>
-              <p
-                data-ar="تواصل مباشر عبر الاتصال أو واتساب مع الأرقام المخصصة لخدمات المكتب."
-                data-en="Direct communication by phone or WhatsApp through the office service numbers."
-              >
-                تواصل مباشر عبر الاتصال أو واتساب مع الأرقام المخصصة لخدمات المكتب.
-              </p>
-            </article>
-
-            <article class="why-card" data-aos="fade-up" data-aos-delay="120">
-              <span class="why-card__number">03</span>
-              <h3 data-ar="اهتمام بالتفاصيل" data-en="Attention to detail">
-                اهتمام بالتفاصيل
-              </h3>
-              <p
-                data-ar="نساعدك على ترتيب الخيارات الأساسية لرحلتك بطريقة أوضح وأسهل."
-                data-en="We help you organize the essential options for your trip in a clearer and easier way."
-              >
-                نساعدك على ترتيب الخيارات الأساسية لرحلتك بطريقة أوضح وأسهل.
-              </p>
-            </article>
-
-            <article class="why-card" data-aos="fade-up" data-aos-delay="180">
-              <span class="why-card__number">04</span>
-              <h3 data-ar="خدمة محلية في نزوى" data-en="Local service in Nizwa">
-                خدمة محلية في نزوى
-              </h3>
-              <p
-                data-ar="يمكنك زيارتنا في فرعنا بنزوى - فرق، أو التواصل معنا عن بُعد."
-                data-en="Visit us in Nizwa, Farq, or contact us remotely."
-              >
-                يمكنك زيارتنا في فرعنا بنزوى - فرق، أو التواصل معنا عن بُعد.
-              </p>
-            </article>
-
-          </div>
-
-        </div>
-
       </div>
     </section>
 
@@ -1420,7 +1301,7 @@
         <p data-ar="رحلتك تبدأ بخطوة، ونحن نهتم بكل التفاصيل." data-en="Your journey begins with one step, and we care for every detail.">رحلتك تبدأ بخطوة، ونحن نهتم بكل التفاصيل.</p>
       </div>
 
-      <nav class="footer-section footer-links" aria-label="روابط الفوتر">
+      <nav class="footer-section footer-links" aria-label="روابط التذييل" data-aria-ar="روابط التذييل" data-aria-en="Footer links">
         <h3 data-ar="الأقسام" data-en="Sections">الأقسام</h3>
         <a href="#hero" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
         <a href="#about" data-ar="من نحن" data-en="About">من نحن</a>
@@ -1431,7 +1312,7 @@
 
       <div class="footer-section footer-language">
         <h3 data-ar="اللغة" data-en="Language">اللغة</h3>
-        <div class="footer-language__buttons" role="group" aria-label="اختيار اللغة">
+        <div class="footer-language__buttons" role="group" aria-label="اختيار اللغة" data-aria-ar="اختيار اللغة" data-aria-en="Choose language">
           <button type="button" data-footer-lang="ar" class="is-active">العربية</button>
           <button type="button" data-footer-lang="en">English</button>
         </div>
@@ -1449,7 +1330,7 @@
 
       <div class="footer-copyright">
         <p>© <span id="current-year"></span> <span data-ar="One Way Travel &amp; Tours. جميع الحقوق محفوظة." data-en="One Way Travel &amp; Tours. All rights reserved.">One Way Travel &amp; Tours. جميع الحقوق محفوظة.</span> <span class="copyright-divider">•</span> <span data-ar="تصميم وتطوير LUP Team" data-en="Designed and developed by LUP Team">تصميم وتطوير LUP Team</span></p>
-        <a href="#hero" data-ar="العودة للأعلى" data-en="Back to top">العودة للأعلى</a>
+        
       </div>
     </div>
   </footer>
@@ -1460,7 +1341,11 @@
     id="back-to-top"
     type="button"
     aria-label="الرجوع إلى الأعلى"
+    data-aria-ar="الرجوع إلى الأعلى"
+    data-aria-en="Back to top"
     title="الرجوع إلى الأعلى"
+    data-title-ar="الرجوع إلى الأعلى"
+    data-title-en="Back to top"
   >
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path d="M12 20V5m0 0-6 6m6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>

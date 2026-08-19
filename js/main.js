@@ -16,9 +16,30 @@ window.applyOneWayLanguage = function (language) {
   window.oneWayLanguage = language;
   document.documentElement.lang = language;
   document.documentElement.dir = isArabic ? "rtl" : "ltr";
+  
+  if (window.destinationsSwiper) {
+  window.destinationsSwiper.changeLanguageDirection(
+    isArabic ? "rtl" : "ltr"
+  );
 
+  window.destinationsSwiper.update();
+}
   document.querySelectorAll("[data-ar][data-en]").forEach((element) => {
     element.textContent = isArabic ? element.dataset.ar : element.dataset.en;
+  });
+
+  document.querySelectorAll("[data-aria-ar][data-aria-en]").forEach((element) => {
+    element.setAttribute(
+      "aria-label",
+      isArabic ? element.dataset.ariaAr : element.dataset.ariaEn
+    );
+  });
+
+  document.querySelectorAll("[data-title-ar][data-title-en]").forEach((element) => {
+    element.setAttribute(
+      "title",
+      isArabic ? element.dataset.titleAr : element.dataset.titleEn
+    );
   });
 
   const languageButton = document.querySelector("#language-toggle");
@@ -30,10 +51,6 @@ window.applyOneWayLanguage = function (language) {
     button.classList.toggle("is-active", button.dataset.footerLang === language);
   });
 
-  const menuButton = document.querySelector("#menu-toggle");
-  if (menuButton) {
-    menuButton.setAttribute("aria-label", isArabic ? "فتح القائمة" : "Open menu");
-  }
 };
 
 window.initializeOneWayHeader = function () {
@@ -292,9 +309,8 @@ if (
     destinationsShell.querySelector(
       ".ow-destinations__button--prev"
     );
-
-  new Swiper(destinationsElement, {
-    /*
+/**/ 
+window.destinationsSwiper = new Swiper(destinationsElement, {    /*
      * Exactly one card on every phone.
      * Do not use 1.08 or 1.25 here.
      */
